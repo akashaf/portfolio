@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Tuition Management App
 
-## Getting Started
+The Tuition Management App is a comprehensive web application designed to streamline the operations of a tuition center. It offers a range of features to manage teaching modules, assessments, and personalized homework for students.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Teaching Module Management:** Easily organize and schedule teaching modules for different classes and subjects. Keep track of lesson plans and progress.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Assessment Management:** Create and manage assessments, quizzes, and exams. Assign them to students, and track their performance over time.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Personalized Homework:** Tailor homework assignments to individual students, helping them focus on their specific learning needs.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Student and Teacher Profiles:** Maintain detailed profiles for both students and teachers, making it easy to keep track of progress and performance.
 
-## Learn More
+- **Attendance Tracking:** Record and manage attendance for students and teachers to ensure accountability.
 
-To learn more about Next.js, take a look at the following resources:
+- **Announcements:** Share important announcements and updates with students and teachers through the app.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Reporting:** Generate reports on student performance, attendance, and assessment results, providing valuable insights for teachers and parents.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Installation
 
-## Deploy on Vercel
+1. Clone this repository.
+   ```shell git clone https://github.com/akashaf/tuition-app.git```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. Install the required dependencies.
+    ```shell cd tuition-app pnpm install```
+3. Start the server
+```shell pnpm start```
+4. Access the app by visiting `http://localhost:3000` in your web browser.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Usage
+1. Sign in as an administrator, teacher, or student, depending on your role.
+2. Explore the app's various features, including module scheduling, assessment creation, homework assignment, attendance tracking, and more.
+3. Personalize the app according to your tuition center's needs.
+4. Monitor student progress and use the reporting feature to gain insights into their performance.
