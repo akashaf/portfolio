@@ -21,12 +21,18 @@ The Tuition Management App is a comprehensive web application designed to stream
 ## Installation
 
 1. Clone this repository.
-   ```shell git clone https://github.com/akashaf/tuition-app.git```
+   ```shell
+      git clone https://github.com/akashaf/tuition-app.git
+   ```
 
 2. Install the required dependencies.
-    ```shell cd tuition-app pnpm install```
+    ```shell 
+       cd tuition-app pnpm install
+   ```
 3. Start the server
-```shell pnpm start```
+   ```shell
+      pnpm start
+   ```
 4. Access the app by visiting `http://localhost:3000` in your web browser.
 
 ## Usage
