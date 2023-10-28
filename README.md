@@ -1,44 +1,15 @@
-# Tuition Management App
+## Akashaf Khomarudin
 
-The Tuition Management App is a comprehensive web application designed to streamline the operations of a tuition center. It offers a range of features to manage teaching modules, assessments, and personalized homework for students.
+**Front End Developer**
 
-## Features
+**About Me**
 
--   **Teaching Module Management:** Easily organize and schedule teaching modules for different classes and subjects. Keep track of lesson plans and progress.
+I am a skilled and experienced web developer with a passion for new technology and app development. I have 5 years of experience in developing web applications, including e-commerce websites. I am currently working towards becoming a full-stack developer, so that I can be involved in all aspects of web development, from the back-end to the front-end.
 
--   **Assessment Management:** Create and manage assessments, quizzes, and exams. Assign them to students, and track their performance over time.
+In addition to my technical skills, I am also a highly motivated and creative individual. I am always looking for new ways to improve my skills and to learn new technologies. I am also passionate about creating user-friendly and visually appealing web applications.
 
--   **Personalized Homework:** Tailor homework assignments to individual students, helping them focus on their specific learning needs.
+I am a valuable asset to any team, and I am always eager to learn and grow. I am a great choice for any company that is looking for a skilled and experienced web developer.
 
--   **Student and Teacher Profiles:** Maintain detailed profiles for both students and teachers, making it easy to keep track of progress and performance.
+**Built with Next.js and TailwindCSS**
 
--   **Attendance Tracking:** Record and manage attendance for students and teachers to ensure accountability.
-
--   **Announcements:** Share important announcements and updates with students and teachers through the app.
-
--   **Reporting:** Generate reports on student performance, attendance, and assessment results, providing valuable insights for teachers and parents.
-
-## Installation
-
-1. Clone this repository.
-
-    ```shell
-       git clone https://github.com/akashaf/tuition-app.git
-    ```
-
-2. Install the required dependencies.
-    ```shell
-       cd tuition-app pnpm install
-    ```
-3. Start the server
-    ```shell
-       pnpm start
-    ```
-4. Access the app by visiting `http://localhost:3000` in your web browser.
-
-## Usage
-
-1. Sign in as an administrator, teacher, or student, depending on your role.
-2. Explore the app's various features, including module scheduling, assessment creation, homework assignment, attendance tracking, and more.
-3. Personalize the app according to your tuition center's needs.
-4. Monitor student progress and use the reporting feature to gain insights into their performance.
+This portfolio website is built with Next.js and TailwindCSS, two of the most popular technologies for building modern web applications. Next.js is a React framework that provides server-side rendering and static site generation, while TailwindCSS is a CSS framework that provides a utility-first approach to styling.
