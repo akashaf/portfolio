@@ -11,23 +11,18 @@ export default function Home() {
                     <h1 className="text-5xl font-bold">I'm the front End Developer.</h1>
                 </div>
             </section>
-            <section className="py-4 bg-[#00cdac]">
+            <section className="bg-[#02aab0] px-40 py-16" style={{
+                backgroundImage: 'linear-gradient(135deg,#02aab0 0%,#00cdac 100%)',
+                clipPath: 'polygon(0 0,100% 0,100% 80%,0 100%)'
+            }}>
                 <div className="container text-white">
                     <h2 className="text-center text-4xl font-bold uppercase">About Me</h2>
                     <div className="flex justify-center items-center space-x-8">
                         <div>
                             <Image src="/IMG_0202.jpg" width={300} height={300} alt="my picture" />
                         </div>
-                        <div className="w-2/3">
-                            I am a skilled and experienced web developer with a passion for new technology and app
-                            development. I have 5 years of experience in developing web applications, including
-                            e-commerce websites. I am currently working towards becoming a full-stack developer, so that
-                            I can be involved in all aspects of web development, from the back-end to the front-end. In
-                            addition to my technical skills, I am also a highly motivated and creative individual. I am
-                            always looking for new ways to improve my skills and to learn new technologies. I am also
-                            passionate about creating user-friendly and visually appealing web applications. I am a
-                            valuable asset to any team, and I am always eager to learn and grow. I am a great choice for
-                            any company that is looking for a skilled and experienced web developer.
+                        <div className="w-2/3 text-justify">
+                        Web developer with 5+ years of experience building user-friendly and visually appealing web applications, including e-commerce websites. Passionate about new technology and app development, and currently working towards becoming a full-stack developer. Creative and highly motivated individual, always eager to learn and grow. Looking to join a team where I can use my skills to create innovative and impactful web applications
                         </div>
                     </div>
                 </div>
