@@ -1,14 +1,23 @@
+import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 
 export default function Home() {
     return (
         <main className="min-h-screen">
             <section className="min-h-screen flex items-center container mx-auto">
-                <div>
-                    <h1 className="text-5xl font-bold">
-                        Hi, my name is <span className="text-[#00cdac]">Akashaf Khomarudin</span>
-                    </h1>
-                    <h1 className="text-5xl font-bold">I'm the front End Developer.</h1>
+                <div className="space-y-4 text-5xl font-bold">
+                    <div>
+                        <h1>
+                            Hi, my name is <span className="text-[#00cdac]">Akashaf Khomarudin</span>
+                        </h1>
+                        <h1>I'm the front End Developer.</h1>
+                    </div>
+                    <Button
+                        className="uppercase border-[#00cdac] hover:bg-[#00cdac] hover:text-white"
+                        variant="outline"
+                    >
+                        know more
+                    </Button>
                 </div>
             </section>
             <section
