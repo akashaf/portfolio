@@ -1,7 +1,47 @@
 import { Button } from '@/components/ui/button';
+import { nanoid } from 'nanoid';
+import clsx from 'clsx';
 import Image from 'next/image';
 
 export default function Home() {
+    interface Project {
+        title: string;
+        description: JSX.Element;
+        link: {
+            source: string;
+            demo: string;
+        };
+    }
+    const projects: Project[] = [
+        {
+            title: 'Project Title 1',
+            description: (
+                <div>
+                    Describe the project being very specific, you can use the Twitter standard: no more than 280
+                    characters: complement the information: the skills learned or reinforced in its realization and how
+                    you faced it, prove to be proactive in the search for solutions.
+                </div>
+            ),
+            link: {
+                source: '',
+                demo: '',
+            },
+        },
+        {
+            title: 'Project Title 2',
+            description: (
+                <div>
+                    Describe the project being very specific, you can use the Twitter standard: no more than 280
+                    characters: complement the information: the skills learned or reinforced in its realization and how
+                    you faced it, prove to be proactive in the search for solutions.
+                </div>
+            ),
+            link: {
+                source: '',
+                demo: '',
+            },
+        },
+    ];
     return (
         <main className="min-h-screen">
             <section className="min-h-screen flex items-center container mx-auto">
@@ -13,7 +53,7 @@ export default function Home() {
                         <h1>I'm the front End Developer.</h1>
                     </div>
                     <Button
-                        className="uppercase border-[#00cdac] border-2 hover:bg-[#00cdac] hover:text-white"
+                        className="uppercase font-bold text-[#00cdac] border-[#00cdac] border-2 hover:bg-[#00cdac] hover:text-white"
                         variant="outline"
                     >
                         know more
@@ -34,16 +74,52 @@ export default function Home() {
                             <Image src="/IMG_0202.jpg" width={300} height={300} alt="my picture" />
                         </div>
                         <div className="w-2/3 space-y-4">
-                            <p className='text-justify'>
-                            Web developer with 5+ years of experience building user-friendly and visually appealing web
-                            applications, including e-commerce websites. Passionate about new technology and app
-                            development, and currently working towards becoming a full-stack developer. Creative and
-                            highly motivated individual, always eager to learn and grow. Looking to join a team where I
-                            can use my skills to create innovative and impactful web applications  
+                            <p className="text-justify">
+                                Web developer with 5+ years of experience building user-friendly and visually appealing
+                                web applications, including e-commerce websites. Passionate about new technology and app
+                                development, and currently working towards becoming a full-stack developer. Creative and
+                                highly motivated individual, always eager to learn and grow. Looking to join a team
+                                where I can use my skills to create innovative and impactful web applications
                             </p>
-                            <Button className='uppercase border-2 bg-transparent font-bold hover:text-[#02aab0]' variant='outline'>view resume</Button>
+                            <Button
+                                className="uppercase border-2 bg-transparent font-bold hover:text-[#00cdac]"
+                                variant="outline"
+                            >
+                                view resume
+                            </Button>
                         </div>
                     </div>
+                </div>
+            </section>
+            <section className="container mx-auto">
+                <h2 className="text-center text-4xl font-bold uppercase">projects</h2>
+                <div className="space-y-4">
+                    {projects.map((project, idx) => {
+                        const order = idx % 2 === 0 ? 'order-first' : 'order-last';
+                        return (
+                            <div className="flex items-center justify-between gap-12" key={nanoid(2)}>
+                                <div className={clsx('space-y-4', order)}>
+                                    <h3 className="text-2xl font-bold uppercase">{project.title}</h3>
+                                    <div className="text-justify">{project.description}</div>
+                                    <div className="flex gap-4">
+                                        <Button
+                                            className="capitalize font-bold text-[#00cdac] border-[#00cdac] border-2 hover:bg-[#00cdac] hover:text-white"
+                                            variant="outline"
+                                        >
+                                            See Live
+                                        </Button>
+                                        <Button
+                                            className="font-bold text-[#00cdac] hover:text-[#00cdac]"
+                                            variant="ghost"
+                                        >
+                                            Source Code
+                                        </Button>
+                                    </div>
+                                </div>
+                                <Image src="/IMG_0202.jpg" width={300} height={300} alt="my picture" />
+                            </div>
+                        );
+                    })}
                 </div>
             </section>
         </main>
