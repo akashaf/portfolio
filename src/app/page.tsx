@@ -1,7 +1,9 @@
+'use client';
 import { Button } from '@/components/ui/button';
 import { nanoid } from 'nanoid';
 import clsx from 'clsx';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 export default function Home() {
     interface Project {
@@ -45,20 +47,27 @@ export default function Home() {
     return (
         <main className="min-h-screen">
             <section className="min-h-screen flex items-center container mx-auto">
-                <div className="space-y-4 text-5xl font-bold">
+                <motion.div
+                    className="space-y-4 text-5xl font-bold"
+                    initial={{ x: '-100vw' }} // Position the div outside of the viewport to the left
+                    animate={{ x: 0 }} // Position the div in its desired position within the viewport
+                    transition={{ duration: 2.5 }} // Set the animation duration to 0.5 seconds
+                >
                     <div>
                         <h1>
                             Hi, my name is <span className="text-[#00cdac]">Akashaf Khomarudin</span>
                         </h1>
                         <h1>I'm the front End Developer.</h1>
                     </div>
-                    <Button
-                        className="uppercase font-bold text-[#00cdac] border-[#00cdac] border-2 hover:bg-[#00cdac] hover:text-white"
-                        variant="outline"
-                    >
-                        know more
-                    </Button>
-                </div>
+                    <motion.div whileTap={{ scale: 0.95, rotate: '2.5deg' }}>
+                        <Button
+                            className="uppercase font-bold text-[#00cdac] border-[#00cdac] border-2 hover:bg-[#00cdac] hover:text-white"
+                            variant="outline"
+                        >
+                            know more
+                        </Button>
+                    </motion.div>
+                </motion.div>
             </section>
             <section
                 className="bg-[#02aab0] px-40 py-16"
@@ -67,7 +76,12 @@ export default function Home() {
                     clipPath: 'polygon(0 0,100% 0,100% 80%,0 100%)',
                 }}
             >
-                <div className="container text-white">
+                <motion.div
+                    className="container text-white"
+                    initial={{ x: '-100vw' }} // Position the div outside of the viewport to the left
+                    animate={{ x: 0 }} // Position the div in its desired position within the viewport
+                    transition={{ duration: 2.5 }} // Set the animation duration to 0.5 seconds
+                >
                     <h2 className="text-center text-4xl font-bold uppercase">About Me</h2>
                     <div className="flex justify-center items-center space-x-8">
                         <div>
@@ -81,43 +95,64 @@ export default function Home() {
                                 highly motivated individual, always eager to learn and grow. Looking to join a team
                                 where I can use my skills to create innovative and impactful web applications
                             </p>
-                            <Button
-                                className="uppercase border-2 bg-transparent font-bold hover:text-[#00cdac]"
-                                variant="outline"
-                            >
-                                view resume
-                            </Button>
+                            <motion.div whileTap={{ scale: 0.95, rotate: '2.5deg' }}>
+                                <Button
+                                    className="uppercase border-2 bg-transparent font-bold hover:text-[#00cdac]"
+                                    variant="outline"
+                                    onClick={() => window.open('resume.pdf', '_blank', 'noopener,noreferrer')}
+                                >
+                                    view resume
+                                </Button>
+                            </motion.div>
                         </div>
                     </div>
-                </div>
+                </motion.div>
             </section>
             <section className="container mx-auto">
-                <h2 className="text-center text-4xl font-bold uppercase">projects</h2>
+                <motion.h2
+                    initial={{ x: '-100vw' }} // Position the div outside of the viewport to the left
+                    animate={{ x: 0 }} // Position the div in its desired position within the viewport
+                    transition={{ duration: 2.5 }} // Set the animation duration to 0.5 seconds
+                    className="text-center text-4xl font-bold uppercase"
+                >
+                    projects
+                </motion.h2>
                 <div className="space-y-4">
                     {projects.map((project, idx) => {
-                        const order = idx % 2 === 0 ? 'order-first' : 'order-last';
+                        const order = idx % 2 === 0;
                         return (
-                            <div className="flex items-center justify-between gap-12" key={nanoid(2)}>
-                                <div className={clsx('space-y-4', order)}>
-                                    <h3 className="text-2xl font-bold uppercase">{project.title}</h3>
-                                    <div className="text-justify">{project.description}</div>
-                                    <div className="flex gap-4">
-                                        <Button
-                                            className="capitalize font-bold text-[#00cdac] border-[#00cdac] border-2 hover:bg-[#00cdac] hover:text-white"
-                                            variant="outline"
-                                        >
-                                            See Live
-                                        </Button>
-                                        <Button
-                                            className="font-bold text-[#00cdac] hover:text-[#00cdac]"
-                                            variant="ghost"
-                                        >
-                                            Source Code
-                                        </Button>
+                            <motion.div
+                                key={nanoid(2)}
+                                initial={{ x: order ? '-100vw' : '100vw' }} // Position the div outside of the viewport to the left
+                                animate={{ x: 0 }} // Position the div in its desired position within the viewport
+                                transition={{ duration: 2.5 }} // Set the animation duration to 0.5 seconds
+                            >
+                                <div className="flex items-center justify-between gap-12">
+                                    <div className={clsx('space-y-4', order ? 'order-first' : 'order-last')}>
+                                        <h3 className="text-2xl font-bold uppercase">{project.title}</h3>
+                                        <div className="text-justify">{project.description}</div>
+                                        <div className="flex gap-4">
+                                            <motion.div whileTap={{ scale: 0.95, rotate: '2.5deg' }}>
+                                                <Button
+                                                    className="capitalize font-bold text-[#00cdac] border-[#00cdac] border-2 hover:bg-[#00cdac] hover:text-white"
+                                                    variant="outline"
+                                                >
+                                                    See Live
+                                                </Button>
+                                            </motion.div>
+                                            <motion.div whileTap={{ scale: 0.95, rotate: '2.5deg' }}>
+                                                <Button
+                                                    className="font-bold text-[#00cdac] hover:text-[#00cdac]"
+                                                    variant="ghost"
+                                                >
+                                                    Source Code
+                                                </Button>
+                                            </motion.div>
+                                        </div>
                                     </div>
+                                    <Image src="/IMG_0202.jpg" width={300} height={300} alt="my picture" />
                                 </div>
-                                <Image src="/IMG_0202.jpg" width={300} height={300} alt="my picture" />
-                            </div>
+                            </motion.div>
                         );
                     })}
                 </div>

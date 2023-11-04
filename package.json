@@ -25,6 +25,7 @@
         "class-variance-authority": "^0.7.0",
         "clsx": "^2.0.0",
         "eslint-plugin-prettier": "^5.0.1",
+        "framer-motion": "^10.16.4",
         "husky": "^8.0.3",
         "lint-staged": "^15.0.2",
         "lucide-react": "^0.291.0",
