@@ -13,7 +13,7 @@ export default function Home() {
                         <h1>I'm the front End Developer.</h1>
                     </div>
                     <Button
-                        className="uppercase border-[#00cdac] hover:bg-[#00cdac] hover:text-white"
+                        className="uppercase border-[#00cdac] border-2 hover:bg-[#00cdac] hover:text-white"
                         variant="outline"
                     >
                         know more
@@ -33,12 +33,15 @@ export default function Home() {
                         <div>
                             <Image src="/IMG_0202.jpg" width={300} height={300} alt="my picture" />
                         </div>
-                        <div className="w-2/3 text-justify">
+                        <div className="w-2/3 space-y-4">
+                            <p className='text-justify'>
                             Web developer with 5+ years of experience building user-friendly and visually appealing web
                             applications, including e-commerce websites. Passionate about new technology and app
                             development, and currently working towards becoming a full-stack developer. Creative and
                             highly motivated individual, always eager to learn and grow. Looking to join a team where I
-                            can use my skills to create innovative and impactful web applications
+                            can use my skills to create innovative and impactful web applications  
+                            </p>
+                            <Button className='uppercase border-2 bg-transparent font-bold hover:text-[#02aab0]' variant='outline'>view resume</Button>
                         </div>
                     </div>
                 </div>
