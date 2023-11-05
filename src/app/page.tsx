@@ -60,12 +60,18 @@ export default function Home() {
             <h1>I'm the front End Developer.</h1>
           </div>
           <motion.div whileTap={{ scale: 0.95, rotate: '2.5deg' }}>
+            
             <Button
               className="uppercase font-bold text-[#00cdac] border-[#00cdac] border-2 hover:bg-[#00cdac] hover:text-white"
               variant="outline"
+              onClick={() => window.scrollTo({
+                top: document.getElementById('about-me')!.offsetTop,
+                behavior: 'smooth',
+              })}
             >
               know more
             </Button>
+            
           </motion.div>
         </motion.div>
       </section>
@@ -76,56 +82,85 @@ export default function Home() {
           clipPath: 'polygon(0 0,100% 0,100% 80%,0 100%)',
         }}
       >
-        <motion.div
-          className="container text-white"
-          initial={{ x: '-100vw' }} // Position the div outside of the viewport to the left
-          animate={{ x: 0 }} // Position the div in its desired position within the viewport
-          transition={{ duration: 2.5 }} // Set the animation duration to 0.5 seconds
-        >
-          <h2 className="text-center text-4xl font-bold uppercase">About Me</h2>
-          <div className="flex justify-center items-center space-x-8">
-            <div>
-              <Image src="/IMG_0202.jpg" width={300} height={300} alt="my picture" />
+        <motion.div id='about-me' initial="offscreen" whileInView="onscreen" viewport={{ once: true }}>
+          <motion.div
+          
+            className="container text-white"
+            variants={{
+              offscreen: {
+                x: '-100vw',
+              },
+              onscreen: {
+                x: 0,
+                transition: {
+                  duration: 2.5,
+                },
+              },
+            }}
+          >
+            <h2 className="text-center text-4xl font-bold uppercase">About Me</h2>
+            <div className="flex justify-center items-center space-x-8">
+              <div>
+                <Image src="/IMG_0202.jpg" width={300} height={300} alt="my picture" />
+              </div>
+              <div className="w-2/3 space-y-4">
+                <p className="text-justify">
+                  Web developer with 5+ years of experience building user-friendly and visually appealing web
+                  applications, including e-commerce websites. Passionate about new technology and app development, and
+                  currently working towards becoming a full-stack developer. Creative and highly motivated individual,
+                  always eager to learn and grow. Looking to join a team where I can use my skills to create innovative
+                  and impactful web applications
+                </p>
+                <motion.div whileTap={{ scale: 0.95, rotate: '2.5deg' }}>
+                  <Button
+                    className="uppercase border-2 bg-transparent font-bold hover:text-[#00cdac]"
+                    variant="outline"
+                    onClick={() => window.open('resume.pdf', '_blank', 'noopener,noreferrer')}
+                  >
+                    view resume
+                  </Button>
+                </motion.div>
+              </div>
             </div>
-            <div className="w-2/3 space-y-4">
-              <p className="text-justify">
-                Web developer with 5+ years of experience building user-friendly and visually appealing web
-                applications, including e-commerce websites. Passionate about new technology and app development, and
-                currently working towards becoming a full-stack developer. Creative and highly motivated individual,
-                always eager to learn and grow. Looking to join a team where I can use my skills to create innovative
-                and impactful web applications
-              </p>
-              <motion.div whileTap={{ scale: 0.95, rotate: '2.5deg' }}>
-                <Button
-                  className="uppercase border-2 bg-transparent font-bold hover:text-[#00cdac]"
-                  variant="outline"
-                  onClick={() => window.open('resume.pdf', '_blank', 'noopener,noreferrer')}
-                >
-                  view resume
-                </Button>
-              </motion.div>
-            </div>
-          </div>
+          </motion.div>
         </motion.div>
       </section>
       <section className="container mx-auto">
-        <motion.h2
-          initial={{ x: '-100vw' }} // Position the div outside of the viewport to the left
-          animate={{ x: 0 }} // Position the div in its desired position within the viewport
-          transition={{ duration: 2.5 }} // Set the animation duration to 0.5 seconds
-          className="text-center text-4xl font-bold uppercase"
-        >
-          projects
-        </motion.h2>
-        <div className="space-y-4">
-          {projects.map((project, idx) => {
+        <motion.div initial="offscreen" whileInView="onscreen" viewport={{ once: true }}>
+          <motion.h2
+            variants={{
+              offscreen: {
+                x: '-100vw',
+              },
+              onscreen: {
+                x: 0,
+                transition: {
+                  duration: 2.5,
+                },
+              },
+            }}
+            className="text-center text-4xl font-bold uppercase"
+          >
+            projects
+          </motion.h2>
+          <div className="space-y-4">
+            {/* <div>coming soon</div> */}
+            {projects.map((project, idx) => {
             const order = idx % 2 === 0;
             return (
               <motion.div
                 key={nanoid(2)}
-                initial={{ x: order ? '-100vw' : '100vw' }} // Position the div outside of the viewport to the left
-                animate={{ x: 0 }} // Position the div in its desired position within the viewport
-                transition={{ duration: 2.5 }} // Set the animation duration to 0.5 seconds
+                variants={{
+                  offscreen: {
+                    x: order ? '-100vw' : '100vw',
+                  },
+                  onscreen: {
+                    x: 0,
+                    transition: {
+                      duration: 2.5,
+                    },
+                  },
+                }}
               >
                 <div className="flex items-center justify-between gap-12">
                   <div className={clsx('space-y-4', order ? 'order-first' : 'order-last')}>
@@ -152,7 +187,8 @@ export default function Home() {
               </motion.div>
             );
           })}
-        </div>
+          </div>
+        </motion.div>
       </section>
     </main>
   );
