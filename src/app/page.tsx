@@ -45,151 +45,203 @@ export default function Home() {
     },
   ];
   return (
-    <main className="min-h-screen">
-      <section className="min-h-screen flex items-center container mx-auto">
-        <motion.div
-          className="space-y-4 text-5xl font-bold"
-          initial={{ x: '-100vw' }} // Position the div outside of the viewport to the left
-          animate={{ x: 0 }} // Position the div in its desired position within the viewport
-          transition={{ duration: 2.5 }} // Set the animation duration to 0.5 seconds
-        >
-          <div>
-            <h1>
+    <main>
+      <section className="container text-center md:text-left min-h-screen flex items-center">
+        <div>
+          <div className="mb-4">
+            <h1 className="text-2xl md:text-4xl font-bold">
               Hi, my name is <span className="text-[#00cdac]">Akashaf Khomarudin</span>
             </h1>
-            <h1>I'm the front End Developer.</h1>
+            <h1 className="text-2xl md:text-4xl font-bold">I'm the front End Developer.</h1>
           </div>
-          <motion.div whileTap={{ scale: 0.95, rotate: '2.5deg' }}>
-            
-            <Button
-              className="uppercase font-bold text-[#00cdac] border-[#00cdac] border-2 hover:bg-[#00cdac] hover:text-white"
-              variant="outline"
-              onClick={() => window.scrollTo({
+          <Button
+            className="uppercase font-bold text-[#00cdac] border-[#00cdac] border-2 hover:bg-[#00cdac] hover:text-white"
+            variant="outline"
+            onClick={() =>
+              window.scrollTo({
                 top: document.getElementById('about-me')!.offsetTop,
                 behavior: 'smooth',
-              })}
-            >
-              know more
-            </Button>
-            
-          </motion.div>
-        </motion.div>
+              })
+            }
+          >
+            know more
+          </Button>
+        </div>
       </section>
       <section
-        className="bg-[#02aab0] px-40 py-16"
-        style={{
-          backgroundImage: 'linear-gradient(135deg,#02aab0 0%,#00cdac 100%)',
-          clipPath: 'polygon(0 0,100% 0,100% 80%,0 100%)',
-        }}
+        className="bg-[#02aab0] md:px-40 md:py-16 py-8 :[backgroundImage: 'linear-gradient(135deg,#02aab0 0%,#00cdac 100%)'] md:[clipPath: 'polygon(0 0,100% 0,100% 80%,0 100%)']"
       >
-        <motion.div id='about-me' initial="offscreen" whileInView="onscreen" viewport={{ once: true }}>
-          <motion.div
-          
-            className="container text-white"
-            variants={{
-              offscreen: {
-                x: '-100vw',
-              },
-              onscreen: {
-                x: 0,
-                transition: {
-                  duration: 2.5,
-                },
-              },
-            }}
-          >
-            <h2 className="text-center text-4xl font-bold uppercase">About Me</h2>
-            <div className="flex justify-center items-center space-x-8">
-              <div>
-                <Image src="/IMG_0202.jpg" width={300} height={300} alt="my picture" />
-              </div>
-              <div className="w-2/3 space-y-4">
-                <p className="text-justify">
-                  Web developer with 5+ years of experience building user-friendly and visually appealing web
-                  applications, including e-commerce websites. Passionate about new technology and app development, and
-                  currently working towards becoming a full-stack developer. Creative and highly motivated individual,
-                  always eager to learn and grow. Looking to join a team where I can use my skills to create innovative
-                  and impactful web applications
-                </p>
-                <motion.div whileTap={{ scale: 0.95, rotate: '2.5deg' }}>
-                  <Button
-                    className="uppercase border-2 bg-transparent font-bold hover:text-[#00cdac]"
-                    variant="outline"
-                    onClick={() => window.open('resume.pdf', '_blank', 'noopener,noreferrer')}
-                  >
-                    view resume
-                  </Button>
-                </motion.div>
-              </div>
+        <div className="container text-white">
+          <h2 className="text-center text-2xl md:text-4xl font-bold uppercase mb-4">About Me</h2>
+          <div className="grid md:grid-cols-2 md:items-center space-y-12">
+            <div>
+              <Image src="/IMG_0202.jpg" width={650} height={650} alt="my picture" />
             </div>
-          </motion.div>
-        </motion.div>
-      </section>
-      <section className="container mx-auto">
-        <motion.div initial="offscreen" whileInView="onscreen" viewport={{ once: true }}>
-          <motion.h2
-            variants={{
-              offscreen: {
-                x: '-100vw',
-              },
-              onscreen: {
-                x: 0,
-                transition: {
-                  duration: 2.5,
-                },
-              },
-            }}
-            className="text-center text-4xl font-bold uppercase"
-          >
-            projects
-          </motion.h2>
-          <div className="space-y-4">
-            {/* <div>coming soon</div> */}
-            {projects.map((project, idx) => {
-            const order = idx % 2 === 0;
-            return (
-              <motion.div
-                key={nanoid(2)}
-                variants={{
-                  offscreen: {
-                    x: order ? '-100vw' : '100vw',
-                  },
-                  onscreen: {
-                    x: 0,
-                    transition: {
-                      duration: 2.5,
-                    },
-                  },
-                }}
+            <div className="md:w-2/3 text-center">
+              <p className="text-justify mb-4">
+                Web developer with 5+ years of experience building user-friendly and visually appealing web
+                applications, including e-commerce websites. Passionate about new technology and app development, and
+                currently working towards becoming a full-stack developer. Creative and highly motivated individual,
+                always eager to learn and grow. Looking to join a team where I can use my skills to create innovative
+                and impactful web applications
+              </p>
+              <Button
+                className="uppercase border-2 bg-transparent font-bold hover:text-[#00cdac]"
+                variant="outline"
+                onClick={() => window.open('resume.pdf', '_blank', 'noopener,noreferrer')}
               >
-                <div className="flex items-center justify-between gap-12">
-                  <div className={clsx('space-y-4', order ? 'order-first' : 'order-last')}>
-                    <h3 className="text-2xl font-bold uppercase">{project.title}</h3>
-                    <div className="text-justify">{project.description}</div>
-                    <div className="flex gap-4">
-                      <motion.div whileTap={{ scale: 0.95, rotate: '2.5deg' }}>
-                        <Button
-                          className="capitalize font-bold text-[#00cdac] border-[#00cdac] border-2 hover:bg-[#00cdac] hover:text-white"
-                          variant="outline"
-                        >
-                          See Live
-                        </Button>
-                      </motion.div>
-                      <motion.div whileTap={{ scale: 0.95, rotate: '2.5deg' }}>
-                        <Button className="font-bold text-[#00cdac] hover:text-[#00cdac]" variant="ghost">
-                          Source Code
-                        </Button>
-                      </motion.div>
-                    </div>
-                  </div>
-                  <Image src="/IMG_0202.jpg" width={300} height={300} alt="my picture" />
-                </div>
-              </motion.div>
-            );
-          })}
+                view resume
+              </Button>
+            </div>
           </div>
-        </motion.div>
+        </div>
       </section>
     </main>
+    // <main>
+    //   <section className="min-h-screen flex items-center container mx-auto">
+    //     <motion.div
+    //       className="space-y-4 text-5xl font-bold text-center md:text-left"
+    //       initial={{ opacity: 0, y: '5vh' }}
+    //       animate={{ opacity: 1, y: 0 }}
+    //       transition={{ duration: 2 }}
+    //     >
+    //       <div>
+    //         <h1>
+    //           Hi, my name is <span className="text-[#00cdac]">Akashaf Khomarudin</span>
+    //         </h1>
+    //         <h1>I'm the front End Developer.</h1>
+    //       </div>
+    //       <motion.div whileTap={{ scale: 0.95, rotate: '2.5deg' }}>
+
+    //         <Button
+    //           className="uppercase font-bold text-[#00cdac] border-[#00cdac] border-2 hover:bg-[#00cdac] hover:text-white"
+    //           variant="outline"
+    //           onClick={() => window.scrollTo({
+    //             top: document.getElementById('about-me')!.offsetTop,
+    //             behavior: 'smooth',
+    //           })}
+    //         >
+    //           know more
+    //         </Button>
+
+    //       </motion.div>
+    //     </motion.div>
+    //   </section>
+    //   <section
+    //     className="bg-[#02aab0] px-40 py-16"
+    //     style={{
+    //       backgroundImage: 'linear-gradient(135deg,#02aab0 0%,#00cdac 100%)',
+    //       clipPath: 'polygon(0 0,100% 0,100% 80%,0 100%)',
+    //     }}
+    //   >
+    //     <motion.div id='about-me' initial="offscreen" whileInView="onscreen" viewport={{ once: true }}>
+    //       <motion.div
+
+    //         className="container text-white"
+    //         variants={{
+    //           offscreen: {
+    //             x: '-100vw',
+    //           },
+    //           onscreen: {
+    //             x: 0,
+    //             transition: {
+    //               duration: 2.5,
+    //             },
+    //           },
+    //         }}
+    //       >
+    //         <h2 className="text-center text-4xl font-bold uppercase">About Me</h2>
+    //         <div className="flex justify-center items-center space-x-8">
+    //           <div>
+    //             <Image src="/IMG_0202.jpg" width={300} height={300} alt="my picture" />
+    //           </div>
+    //           <div className="w-2/3 space-y-4">
+    //             <p className="text-justify">
+    //               Web developer with 5+ years of experience building user-friendly and visually appealing web
+    //               applications, including e-commerce websites. Passionate about new technology and app development, and
+    //               currently working towards becoming a full-stack developer. Creative and highly motivated individual,
+    //               always eager to learn and grow. Looking to join a team where I can use my skills to create innovative
+    //               and impactful web applications
+    //             </p>
+    //             <motion.div whileTap={{ scale: 0.95, rotate: '2.5deg' }}>
+    //               <Button
+    //                 className="uppercase border-2 bg-transparent font-bold hover:text-[#00cdac]"
+    //                 variant="outline"
+    //                 onClick={() => window.open('resume.pdf', '_blank', 'noopener,noreferrer')}
+    //               >
+    //                 view resume
+    //               </Button>
+    //             </motion.div>
+    //           </div>
+    //         </div>
+    //       </motion.div>
+    //     </motion.div>
+    //   </section>
+    //   <section className="container mx-auto">
+    //     <motion.div initial="offscreen" whileInView="onscreen" viewport={{ once: true }}>
+    //       <motion.h2
+    //         variants={{
+    //           offscreen: {
+    //             x: '-100vw',
+    //           },
+    //           onscreen: {
+    //             x: 0,
+    //             transition: {
+    //               duration: 2.5,
+    //             },
+    //           },
+    //         }}
+    //         className="text-center text-4xl font-bold uppercase"
+    //       >
+    //         projects
+    //       </motion.h2>
+    //       <div className="space-y-4">
+    //         {/* <div>coming soon</div> */}
+    //         {projects.map((project, idx) => {
+    //         const order = idx % 2 === 0;
+    //         return (
+    //           <motion.div
+    //             key={nanoid(2)}
+    //             variants={{
+    //               offscreen: {
+    //                 x: order ? '-100vw' : '100vw',
+    //               },
+    //               onscreen: {
+    //                 x: 0,
+    //                 transition: {
+    //                   duration: 2.5,
+    //                 },
+    //               },
+    //             }}
+    //           >
+    //             <div className="flex items-center justify-between gap-12">
+    //               <div className={clsx('space-y-4', order ? 'order-first' : 'order-last')}>
+    //                 <h3 className="text-2xl font-bold uppercase">{project.title}</h3>
+    //                 <div className="text-justify">{project.description}</div>
+    //                 <div className="flex gap-4">
+    //                   <motion.div whileTap={{ scale: 0.95, rotate: '2.5deg' }}>
+    //                     <Button
+    //                       className="capitalize font-bold text-[#00cdac] border-[#00cdac] border-2 hover:bg-[#00cdac] hover:text-white"
+    //                       variant="outline"
+    //                     >
+    //                       See Live
+    //                     </Button>
+    //                   </motion.div>
+    //                   <motion.div whileTap={{ scale: 0.95, rotate: '2.5deg' }}>
+    //                     <Button className="font-bold text-[#00cdac] hover:text-[#00cdac]" variant="ghost">
+    //                       Source Code
+    //                     </Button>
+    //                   </motion.div>
+    //                 </div>
+    //               </div>
+    //               <Image src="/IMG_0202.jpg" width={300} height={300} alt="my picture" />
+    //             </div>
+    //           </motion.div>
+    //         );
+    //       })}
+    //       </div>
+    //     </motion.div>
+    //   </section>
+    // </main>
   );
 }
