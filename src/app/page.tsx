@@ -46,13 +46,13 @@ export default function Home() {
   ];
   return (
     <main>
-      <section className="container text-center md:text-left min-h-screen flex items-center">
+      <section className="container text-center lg:text-left min-h-screen lg:justify-center flex items-center">
         <div>
           <div className="mb-4">
-            <h1 className="text-2xl md:text-4xl font-bold">
+            <h1 className="text-2xl lg:text-4xl font-bold">
               Hi, my name is <span className="text-[#00cdac]">Akashaf Khomarudin</span>
             </h1>
-            <h1 className="text-2xl md:text-4xl font-bold">I'm the front End Developer.</h1>
+            <h1 className="text-2xl lg:text-4xl font-bold">I'm the front End Developer.</h1>
           </div>
           <Button
             className="uppercase font-bold text-[#00cdac] border-[#00cdac] border-2 hover:bg-[#00cdac] hover:text-white"
@@ -68,16 +68,19 @@ export default function Home() {
           </Button>
         </div>
       </section>
-      <section
-        className="bg-[#02aab0] md:px-40 md:py-16 py-8 :[backgroundImage: 'linear-gradient(135deg,#02aab0 0%,#00cdac 100%)'] md:[clipPath: 'polygon(0 0,100% 0,100% 80%,0 100%)']"
-      >
+      <section className="bg-[#02aab0] lg:px-40 lg:py-16 py-8 :[backgroundImage: 'linear-gradient(135deg,#02aab0 0%,#00cdac 100%)'] lg:[clipPath: 'polygon(0 0,100% 0,100% 80%,0 100%)']">
+        <motion.div id='about-me' initial="offscreen" whileInView="onscreen" viewport={{ once: true }}>
         <div className="container text-white">
-          <h2 className="text-center text-2xl md:text-4xl font-bold uppercase mb-4">About Me</h2>
-          <div className="grid md:grid-cols-2 md:items-center space-y-12">
-            <div>
-              <Image src="/IMG_0202.jpg" width={650} height={650} alt="my picture" />
-            </div>
-            <div className="md:w-2/3 text-center">
+          <h2 className="text-center text-2xl lg:text-4xl font-bold uppercase mb-4">About Me</h2>
+          <div className="grid lg:grid-cols-2 lg:items-center space-y-12 space-x-4">
+            <Image
+              className="w-full mx-auto lg:w-[15vw] h-auto rounded-lg"
+              src="/IMG_0202.jpg"
+              width={600}
+              height={300}
+              alt="my picture"
+            />
+            <div className="lg:w-2/3 text-center">
               <p className="text-justify mb-4">
                 Web developer with 5+ years of experience building user-friendly and visually appealing web
                 applications, including e-commerce websites. Passionate about new technology and app development, and
@@ -95,12 +98,53 @@ export default function Home() {
             </div>
           </div>
         </div>
+        </motion.div>
+      </section>
+      <section className="container py-8">
+          <h2 className="text-center text-2xl lg:text-4xl font-bold uppercase mb-4">projects</h2>
+          <div className="space-y-4">
+            {projects.map((project, idx) => {
+              const order = idx % 2 === 0;
+              return (
+                <div key={nanoid(2)}>
+                  <div className="flex items-center justify-between gap-12">
+                    <div className={clsx('space-y-4', order ? 'lg:order-first' : 'lg:order-last')}>
+                      <h3 className="text-2xl font-bold uppercase">{project.title}</h3>
+                      <div className="text-justify">{project.description}</div>
+                      <div className="flex gap-4">
+                        <div>
+                          <Button
+                            className="capitalize font-bold text-[#00cdac] border-[#00cdac] border-2 hover:bg-[#00cdac] hover:text-white"
+                            variant="outline"
+                          >
+                            See Live
+                          </Button>
+                        </div>
+                        <div>
+                          <Button className="font-bold text-[#00cdac] hover:text-[#00cdac]" variant="ghost">
+                            Source Code
+                          </Button>
+                        </div>
+                      </div>
+                    </div>
+                    <Image
+              className="w-full mx-auto lg:w-[15vw] h-auto rounded-lg"
+              src="/IMG_0202.jpg"
+              width={600}
+              height={300}
+              alt="my picture"
+            />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
       </section>
     </main>
     // <main>
     //   <section className="min-h-screen flex items-center container mx-auto">
     //     <motion.div
-    //       className="space-y-4 text-5xl font-bold text-center md:text-left"
+    //       className="space-y-4 text-5xl font-bold text-center lg:text-left"
     //       initial={{ opacity: 0, y: '5vh' }}
     //       animate={{ opacity: 1, y: 0 }}
     //       transition={{ duration: 2 }}
