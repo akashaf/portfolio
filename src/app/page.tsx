@@ -1,7 +1,5 @@
 'use client';
 import { Button } from '@/components/ui/button';
-import { nanoid } from 'nanoid';
-import clsx from 'clsx';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
@@ -57,25 +55,25 @@ export default function Home() {
                 Hi, my name is <span className="text-[#00cdac]">Akashaf Khomarudin</span>
               </h1>
               <h1 className="text-2xl lg:text-4xl font-bold">I'm the front End Developer.</h1>
+              <motion.div whileTap={{ scale: 0.95, rotate: '2.5deg' }}>
+                <Button
+                  className="uppercase font-bold text-[#00cdac] border-[#00cdac] border-2 hover:bg-[#00cdac] hover:text-white"
+                  variant="outline"
+                  onClick={() =>
+                    window.scrollTo({
+                      top: document.getElementById('about-me')!.offsetTop,
+                      behavior: 'smooth',
+                    })
+                  }
+                >
+                  know more
+                </Button>
+              </motion.div>
             </div>
-            <motion.div whileTap={{ scale: 0.95, rotate: '2.5deg' }}>
-              <Button
-                className="uppercase font-bold text-[#00cdac] border-[#00cdac] border-2 hover:bg-[#00cdac] hover:text-white"
-                variant="outline"
-                onClick={() =>
-                  window.scrollTo({
-                    top: document.getElementById('about-me')!.offsetTop,
-                    behavior: 'smooth',
-                  })
-                }
-              >
-                know more
-              </Button>
-            </motion.div>
           </motion.div>
         </div>
       </section>
-      <section className="bg-[#02aab0] lg:px-40 lg:py-16 py-8 :[backgroundImage: 'linear-gradient(135deg,#02aab0 0%,#00cdac 100%)'] lg:[clipPath: 'polygon(0 0,100% 0,100% 80%,0 100%)']">
+      <section className="bg-[#02aab0] lg:px-40 lg:py-32 py-8 lg:clip-about-me">
         <motion.div id="about-me" initial="offscreen" whileInView="onscreen" viewport={{ once: true }}>
           <div className="container text-white">
             <motion.div
@@ -93,7 +91,7 @@ export default function Home() {
             >
               <h2 className="text-center text-2xl lg:text-4xl font-bold uppercase mb-4">About Me</h2>
               <div className="grid lg:grid-cols-2 lg:items-center space-y-12 space-x-4">
-                <motion.div whileHover={{ rotate: 20, x: -50, y: -50 }}>
+                <motion.div whileHover={{ rotate: 5, scale: 0.95 }}>
                   <Image
                     className="w-full mx-auto lg:w-[15vw] h-auto rounded-lg shadow-2xl"
                     src="/IMG_0202.jpg"
@@ -114,7 +112,7 @@ export default function Home() {
                     <Button
                       className="uppercase border-2 bg-transparent font-bold hover:text-[#00cdac]"
                       variant="outline"
-                      onClick={() => window.open('resume_v2.pdf', '_blank', 'noopener,noreferrer')}
+                      onClick={() => window.open('resume_v3.pdf', '_blank', 'noopener,noreferrer')}
                     >
                       view resume
                     </Button>
@@ -125,7 +123,7 @@ export default function Home() {
           </div>
         </motion.div>
       </section>
-      <section className="container py-8">
+      <section className="container py-8 min-h-[50vh]">
         <motion.div initial="offscreen" whileInView="onscreen" viewport={{ once: true }}>
           <motion.h2
             className="text-center text-2xl lg:text-4xl font-bold uppercase mb-4"
@@ -143,56 +141,15 @@ export default function Home() {
           >
             projects
           </motion.h2>
-          <div className="space-y-4">
-            {projects.map((project, idx) => {
-              const order = idx % 2 === 0;
-              return (
-                <motion.div
-                  key={nanoid(2)}
-                  variants={{
-                    offscreen: {
-                      opacity: 0,
-                    },
-                    onscreen: {
-                      opacity: 1,
-                      transition: {
-                        delay: 0.5,
-                      },
-                    },
-                  }}
-                >
-                  <div className="flex items-center justify-between gap-12">
-                    <div className={clsx('space-y-4', order ? 'lg:order-first' : 'lg:order-last')}>
-                      <h3 className="text-2xl font-bold uppercase">{project.title}</h3>
-                      <div className="text-justify">{project.description}</div>
-                      <div className="flex gap-4">
-                        <div>
-                          <Button
-                            className="capitalize font-bold text-[#00cdac] border-[#00cdac] border-2 hover:bg-[#00cdac] hover:text-white"
-                            variant="outline"
-                          >
-                            See Live
-                          </Button>
-                        </div>
-                        <div>
-                          <Button className="font-bold text-[#00cdac] hover:text-[#00cdac]" variant="ghost">
-                            Source Code
-                          </Button>
-                        </div>
-                      </div>
-                    </div>
-                    <Image
-                      className="w-full mx-auto lg:w-[15vw] h-auto rounded-lg"
-                      src="/IMG_0202.jpg"
-                      width={600}
-                      height={800}
-                      alt="my picture"
-                    />
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
+          <motion.h3
+            className="text-center lg:text-2xl text-xl uppercase mt-20"
+            animate={{ scale: 1.5, fontWeight: 600 }}
+            transition={{
+              duration: 2,
+            }}
+          >
+            coming soon...
+          </motion.h3>
         </motion.div>
       </section>
     </main>
