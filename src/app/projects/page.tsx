@@ -1,11 +1,15 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { motion } from 'framer-motion';
-const Projects = ({ repoList }) => {
-  console.log(repoList);
-
+interface Repository {
+  id: number;
+  name: string;
+  fork: boolean;
+  // Add more properties as needed
+}
+const Projects = ({ repoList }: {repoList: Repository[]}) => {
   return (
     <>
       <motion.div initial="offscreen" whileInView="onscreen" viewport={{ once: true }}>
@@ -26,7 +30,7 @@ const Projects = ({ repoList }) => {
           projects
         </motion.h2>
         <div className="grid grid-cols-5 gap-4">
-          {repoList.map((repo) => !repo.fork && (
+          {repoList && repoList.map((repo) => !repo.fork && (
             <motion.div
               whileHover={{
                 scale: 1.05,
@@ -57,3 +61,5 @@ const Projects = ({ repoList }) => {
 };
 
 export default Projects;
+
+

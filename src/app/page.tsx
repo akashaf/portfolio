@@ -1,6 +1,6 @@
-import Highlight from './(highlight)/page';
-import AboutMe from './(about-me)/page';
-import Projects from './(projects)/page';
+import AboutMe from "./about-me/page";
+import Highlight from "./highlight/page";
+import Projects from "./projects/page";
 
 async function getData() {
   const res = await fetch('https://api.github.com/users/akashaf/repos', { cache: 'force-cache' })
