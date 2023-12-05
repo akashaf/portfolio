@@ -7,9 +7,10 @@ interface Repository {
   id: number;
   name: string;
   fork: boolean;
+  description: string;
   // Add more properties as needed
 }
-const Projects = ({ repoList }: {repoList: Repository[]}) => {
+const Projects = ({ repoList }: { repoList: Repository[] }) => {
   return (
     <>
       <motion.div initial="offscreen" whileInView="onscreen" viewport={{ once: true }}>
@@ -29,31 +30,35 @@ const Projects = ({ repoList }: {repoList: Repository[]}) => {
         >
           projects
         </motion.h2>
-        <div className="grid grid-cols-5 gap-4">
-          {repoList && repoList.map((repo) => !repo.fork && (
-            <motion.div
-              whileHover={{
-                scale: 1.05,
-              }}
-              key={repo.id}
-            >
-              <Card className="shadow-xl hover:cursor-pointer">
-                <CardHeader>
-                  <CardTitle>
-                    <span className="uppercase">{repo.name}</span>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut dignissimos nihil facilis tempore asperiores. Adipisci, quod alias tempora impedit explicabo labore, laudantium distinctio ea corrupti est placeat harum perspiciatis vitae.</p>
-                </CardContent>
-                <CardFooter className="flex justify-end gap-4">
-                  <motion.div whileTap={{ scale: 0.95, rotate: '2.5deg' }}>
-                    <Button variant="outline">View Project</Button>
+        <div className="grid grid-cols-4 gap-4">
+          {repoList &&
+            repoList.map(
+              (repo) =>
+                !repo.fork && (
+                  <motion.div
+                    whileHover={{
+                      scale: 1.05,
+                    }}
+                    key={repo.id}
+                  >
+                    <Card className="shadow-xl hover:cursor-pointer ">
+                      <CardHeader>
+                        <CardTitle className="uppercase">{repo.name.split('_').join(' ')}</CardTitle>
+                      </CardHeader>
+                      <CardContent className='h-[30vh] overflow-hidden flex items-center'>
+                        <p>
+                          {repo.description ?? 'No description provided for now.'}
+                        </p>
+                      </CardContent>
+                      <CardFooter className="flex justify-end gap-4">
+                        <motion.div whileTap={{ scale: 0.95, rotate: '2.5deg' }}>
+                          <Button variant="outline">View Project</Button>
+                        </motion.div>
+                      </CardFooter>
+                    </Card>
                   </motion.div>
-                </CardFooter>
-              </Card>
-            </motion.div>
-          ))}
+                ),
+            )}
         </div>
       </motion.div>
     </>
@@ -61,5 +66,3 @@ const Projects = ({ repoList }: {repoList: Repository[]}) => {
 };
 
 export default Projects;
-
-
