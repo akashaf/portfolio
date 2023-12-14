@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react';
 import { Montserrat } from 'next/font/google';
 import './globals.css';
 import { Metadata } from 'next';
@@ -6,13 +7,16 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Akashaf | Front End Developer',
   description: 'Akashaf Khomarudin | Front End Developer',
-}
+};
 const montserrat = Montserrat({ subsets: ['latin'] });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={montserrat.className}>{children}</body>
+      <body className={montserrat.className}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
