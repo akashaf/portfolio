@@ -45,7 +45,7 @@ const AboutMe = () => {
                   <Button
                     className="uppercase border-2 bg-transparent font-bold hover:text-[#00cdac]"
                     variant="outline"
-                    onClick={() => window.open('resume_v3.pdf', '_blank', 'noopener,noreferrer')}
+                    onClick={() => window.open('resume_akashaf.pdf', '_blank', 'noopener,noreferrer')}
                   >
                     view resume
                   </Button>
