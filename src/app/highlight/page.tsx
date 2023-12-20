@@ -28,20 +28,18 @@ const Highlight = () => {
                 cursorStyle="_"
               />
             </h2>
-            <motion.div whileTap={{ scale: 0.95, rotate: '2.5deg' }}>
-              <Button
-                className="uppercase font-bold text-[#00cdac] border-[#00cdac] border-2 hover:bg-[#00cdac] hover:text-white"
-                variant="outline"
-                onClick={() =>
-                  window.scrollTo({
-                    top: document.getElementById('about-me')!.offsetTop,
-                    behavior: 'smooth',
-                  })
-                }
-              >
-                know more
-              </Button>
-            </motion.div>
+            <Button
+              className="uppercase font-bold text-[#00cdac] border-[#00cdac] border-2 hover:bg-[#00cdac] hover:text-white"
+              variant="outline"
+              onClick={() =>
+                window.scrollTo({
+                  top: document.getElementById('about-me')!.offsetTop,
+                  behavior: 'smooth',
+                })
+              }
+            >
+              know more
+            </Button>
           </div>
         </motion.div>
       </div>
