@@ -11,6 +11,7 @@ interface Repository {
   description: string;
   html_url: string;
   homepage: string;
+  private: boolean;
   // Add more properties as needed
 }
 const Projects = ({ repoList }: { repoList: Repository[] }) => {
@@ -37,7 +38,7 @@ const Projects = ({ repoList }: { repoList: Repository[] }) => {
           {repoList &&
             repoList.map(
               (repo) =>
-                !repo.fork && (
+                (!repo.fork && !repo.private) && (
                   <motion.div
                     whileHover={{
                       scale: 1.05,
