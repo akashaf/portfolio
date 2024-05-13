@@ -9,7 +9,7 @@ const Highlight = () => {
   return (
     <>
       <div className="absolute bottom-0 right-0">
-        <Image className="hidden lg:block" src="/programmer.gif" alt="background image" width={600} height={800} />
+        <Image className="hidden lg:block" src="/programmer.gif" alt="background image" width={600} height={800} unoptimized />
       </div>
       <div className="container z-10">
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
@@ -17,7 +17,7 @@ const Highlight = () => {
             <h1 className="text-2xl lg:text-4xl font-bold">
               Hi, my name is <span className="text-[#00cdac]">Akashaf Khomarudin</span>
             </h1>
-            <h1 className="text-2xl lg:text-4xl font-bold">I'm the front End Developer.</h1>
+            <h1 className="text-2xl lg:text-4xl font-bold">I am the front End Developer.</h1>
             <h2 className="uppercase font-bold text-4xl text-[#00cdac]">
               <Typewriter
                 cursor

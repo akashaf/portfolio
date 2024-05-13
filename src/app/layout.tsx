@@ -4,6 +4,7 @@ import '@mantine/core/styles.css';
 import './globals.css';
 import { Metadata } from 'next';
 import { ColorSchemeScript, MantineProvider } from '@mantine/core';
+import { ReactNode } from 'react';
 
 // either Static metadata
 export const metadata: Metadata = {
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 };
 const montserrat = Montserrat({ subsets: ['latin'] });
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>

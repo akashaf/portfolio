@@ -1,7 +1,7 @@
 import { getData } from "@/lib/actions";
-import AboutMe from "./about-me/page";
-import Highlight from "./highlight/page";
-import Projects from "./projects/page";
+import AboutMe from "../components/about-me/page";
+import Highlight from "../components/highlight/page";
+import Projects from "../components/projects/page";
 
 
 
