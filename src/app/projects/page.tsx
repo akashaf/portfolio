@@ -1,7 +1,6 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button, Card, Paper } from '@mantine/core';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 interface Repository {
@@ -38,41 +37,39 @@ const Projects = ({ repoList }: { repoList: Repository[] }) => {
           {repoList &&
             repoList.map(
               (repo) =>
-                (!repo.fork && !repo.private) && (
-                  <motion.div
-                    whileHover={{
-                      scale: 1.05,
-                    }}
-                    key={repo.id}
-                  >
-                    <Card className="shadow-xl hover:cursor-pointer ">
-                      <CardHeader className="text-center">
-                        <CardTitle className="uppercase">{repo.name.split('_').join(' ')}</CardTitle>
-                      </CardHeader>
-                      <CardContent className="h-[30vh] overflow-hidden flex items-center">
-                        <p className="text-justify">{repo.description ?? 'No description provided for now.'}</p>
-                      </CardContent>
-                      <CardFooter className="flex justify-between gap-4">
-                        <motion.div whileTap={{ scale: 0.95, rotate: '2.5deg' }}>
-                          <Button asChild>
-                            <Link target="_blank" rel="noopener noreferrer" href={repo.html_url}>
-                              View Code
-                            </Link>
-                          </Button>
-                        </motion.div>
-                        {
-                          repo.homepage !== '' &&
-                          <motion.div whileTap={{ scale: 0.95, rotate: '2.5deg' }}>
-                            <Button asChild disabled>
-                              <Link target="_blank" rel="noopener noreferrer" href={repo.homepage}>
-                                Visit
-                              </Link>
-                            </Button>
-                          </motion.div>
-                        }
-                      </CardFooter>
-                    </Card>
-                  </motion.div>
+                !repo.fork &&
+                !repo.private && (
+                  <Paper shadow="lg" radius="md" p="xl" withBorder classNames={{ root: 'space-y-4' }} key={repo.id}>
+                    <h2 className="text-center uppercase font-bold">{repo.name.split('_').join(' ')}</h2>
+                    <div className="text-sm min-h-[13rem]">{repo.description ?? 'No description provided for now.'}</div>
+                    <div className="inline-flex justify-between space-x-4">
+                      <Button
+                        classNames={{
+                          root: 'uppercase font-bold transition-transform transform hover:scale-95 hover:rotate-2.5',
+                        }}
+                        variant="outline"
+                        component={Link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href={repo.html_url}
+                      >
+                        View Code
+                      </Button>
+                      {repo.homepage !== '' && (
+                        <Button
+                          classNames={{
+                            root: 'uppercase font-bold transition-transform transform hover:scale-95 hover:rotate-2.5',
+                          }}
+                          component={Link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          href={repo.homepage}
+                        >
+                          Visit Site
+                        </Button>
+                      )}
+                    </div>
+                  </Paper>
                 ),
             )}
         </div>
@@ -82,3 +79,56 @@ const Projects = ({ repoList }: { repoList: Repository[] }) => {
 };
 
 export default Projects;
+
+/**
+ * <motion.div
+                    whileHover={{
+                      scale: 1.05,
+                    }}
+                    key={repo.id}
+                  >
+                    <Card
+                      shadow="sm"
+                      padding="lg"
+                      radius="md"
+                      withBorder
+                      classNames={{
+                        section: 'text-center p-4 min-h-[1vh] overflow-hidden flex items-center',
+                      }}
+                    >
+                      <Card.Section inheritPadding>
+                        <div className="uppercase">{repo.name.split('_').join(' ')}</div>
+                      </Card.Section>
+                      <Card.Section inheritPadding>
+                        <p className="text-justify">{repo.description ?? 'No description provided for now.'}</p>
+                      </Card.Section>
+                      <Card.Section inheritPadding>
+                        <Button
+                          classNames={{
+                            root: 'uppercase font-bold transition-transform transform hover:scale-95 hover:rotate-2.5',
+                          }}
+                          component={Link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          href={repo.html_url}
+                        >
+                          View Code
+                        </Button>
+                        {repo.homepage !== '' && (
+                          <Button
+                            classNames={{
+                              root: 'uppercase font-bold transition-transform transform hover:scale-95 hover:rotate-2.5',
+                            }}
+                            component={Link}
+                            disabled
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href={repo.homepage}
+                          >
+                            Visit Site
+                          </Button>
+                        )}
+                      </Card.Section>
+                    </Card>
+                  </motion.div>
+ */

@@ -2,8 +2,8 @@
 
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Button } from '@/components/ui/button';
 import { Typewriter } from 'react-simple-typewriter';
+import { Button } from '@mantine/core';
 
 const Highlight = () => {
   return (
@@ -29,8 +29,10 @@ const Highlight = () => {
               />
             </h2>
             <Button
-              className="uppercase font-bold text-[#00cdac] border-[#00cdac] border-2 hover:bg-[#00cdac] hover:text-white"
-              variant="outline"
+              classNames={{
+                root: 'uppercase font-bold transition-transform transform hover:scale-95 hover:rotate-2.5',
+              }}
+              color='#00cdac'
               onClick={() =>
                 window.scrollTo({
                   top: document.getElementById('about-me')!.offsetTop,

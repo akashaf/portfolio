@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
+import { Button } from '@mantine/core';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
@@ -43,8 +43,10 @@ const AboutMe = () => {
                 </p>
                 <motion.div whileTap={{ scale: 0.95, rotate: '2.5deg' }}>
                   <Button
-                    className="uppercase border-2 bg-transparent font-bold hover:text-[#00cdac]"
-                    variant="outline"
+                    classNames={{
+                      root: 'uppercase font-bold transition-transform transform hover:scale-95 hover:rotate-2.5',
+                    }}
+                    color='#00cdac'
                     onClick={() => window.open('resume_akashaf.pdf', '_blank', 'noopener,noreferrer')}
                   >
                     view resume
